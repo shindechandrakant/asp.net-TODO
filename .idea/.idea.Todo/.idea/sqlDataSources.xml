@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="33809d16-1138-411b-8f08-60d0e04061dc" name="NewTodo Mapping">
+      <data-sources db="bd73eb9b-74df-4a68-aa6d-2fadb39e1a6f" />
+    </mapping>
+  </component>
+</project>

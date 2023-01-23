@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>ToDo HomePage</title>
+    
+    <script>
+    
+    function deleteTodo(_id) {
+        
+        $.ajax({
+            url: "Todo/Delete",
+            type: "POST",
+            data: {
+                id: _id
+            },
+            success: function () {
+                window.location.reload();
+            }
+        });
+    }
+    
+    function populateForm(_id) {
+        
+        
+          $.ajax({
+                      url: "Todo/PopulateForm",
+                      type: "POST",
+                      data: {
+                          id: _id
+                      },
+                      dataType: 'json',
+                      success: function (response) {
+                          
+                          console.log(response);
+                          $("#Todo_Name").val(response.name);
+                          $("#Todo_Id").val(response.id);
+                          $("#form-button").val("Update Todo");
+                          $("#form-action").attr("action", "/Todo/Update");
+                      }
+          });
+              
+    }
+
+
+
+
+    </script>
+</head>
+<body>
+<div>
+    @Html.Partial("_Form");
+        
+    <main role="main">
+        @RenderBody()
+    </main>
+        
+</div>
+</body>
+<script src="https://ajax.microsoft.com/ajax/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="~/wwwroot/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</html>
+
+
